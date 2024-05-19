@@ -1,3 +1,4 @@
+import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 
 // esto para decirle a angular que es un componente
@@ -5,12 +6,19 @@ import { Component } from '@angular/core';
   selector: 'miselector',
   templateUrl: './username.component.html',
   styleUrls: ['./username.component.css'],
+  // importar directiva estructural
+  // imports: [CommonModule],
+  // mas especifico NgForOf
+  imports: [NgForOf],
   standalone: true,
 })
 export class UsernameComponent {
   name = 'John';
   lastname = 'Doe';
   date = new Date();
+
+  paramName = '';
+  paramLastname = '';
 
   users = [
     { name: 'John', lastname: 'Doe' },
@@ -34,5 +42,22 @@ export class UsernameComponent {
 
   toUpper(value: string) {
     return value.toUpperCase();
+  }
+
+  // captureName(value: any) {
+  //   // console.log(value);
+  // }
+
+  captureName(event: any) {
+    this.paramName = event.target.value;
+  }
+
+  captureLastname(event: any) {
+    this.paramLastname = event.target.value;
+  }
+
+  save() {
+    console.log('Saving', this.paramName, this.paramLastname);
+    this.users.push({ name: this.paramName, lastname: this.paramLastname });
   }
 }

@@ -2,6 +2,17 @@
 <h2>{{ lastname.toUpperCase() }}</h2>
 <h3>{{ getFullName() }}</h3>
 <p>{{ date }}</p>
+<input type="text" placeholder="Name" (input)="captureName($event)" /><br />
+<input
+  type="text"
+  placeholder="Lastname"
+  (input)="captureLastname($event)"
+/><br />
+
+<button (click)="save()">Save</button>
+
+<!-- .addEventListener("input", (event) ...) -->
+
 <table>
   <thead>
     <tr>
@@ -11,16 +22,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <!-- <tr>
       <td>John</td>
       <td>Doe</td>
       <td>John Doe</td>
-    </tr>
-    <!-- <tr *ngFor="let user of users">
+    </tr> -->
+    <tr *ngFor="let user of users">
       <td>{{ user.name }}</td>
       <td>{{ user.lastname }}</td>
       <td>{{ user.name }} {{ user.lastname }}</td>
-    </tr> -->
+    </tr>
   </tbody>
 
   Hola Mundo
