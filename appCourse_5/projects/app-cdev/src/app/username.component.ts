@@ -59,5 +59,8 @@ export class UsernameComponent {
   save() {
     console.log('Saving', this.paramName, this.paramLastname);
     this.users.push({ name: this.paramName, lastname: this.paramLastname });
+    // esto no modifica el value en el html
+    this.paramName = '';
+    this.paramLastname = '';
   }
 }
