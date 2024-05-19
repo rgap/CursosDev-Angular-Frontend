@@ -1,0 +1,8 @@
+table {
+  font-family: Arial;
+}
+table,
+th,
+td {
+  border: 1px solid red;
+}
