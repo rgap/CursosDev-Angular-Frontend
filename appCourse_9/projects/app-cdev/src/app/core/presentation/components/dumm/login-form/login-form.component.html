@@ -1,0 +1,67 @@
+<div class="container">
+  <img class="container__logo" src="assets/images/logo.png" alt="" />
+  <!-- <h1>CursosDev</h1> -->
+  <form class="container__form" [formGroup]="formGroup">
+    <div class="form__element">
+      <label for="email" class="element__label">Email</label>
+      <input
+        type="email"
+        class="element__input"
+        name="email"
+        formControlName="email"
+      />
+      <span
+        class="element__error"
+        *ngIf="
+          formGroup.get('email')?.touched &&
+          formGroup.get('email')?.hasError('required')
+        "
+        >Email is required</span
+      >
+      <span>
+        <span
+          class="element__error"
+          *ngIf="
+            formGroup.get('email')?.touched &&
+            formGroup.get('email')?.hasError('pattern')
+          "
+          >Email doesn't meet the pattern</span
+        >
+      </span>
+    </div>
+    <div class="form__element">
+      <label for="password" class="element__label">Password</label>
+      <input
+        type="password"
+        class="element__input"
+        name="password"
+        formControlName="password"
+      />
+    </div>
+    <span
+      class="message-error"
+      *ngIf="
+        formGroup.get('password')?.touched &&
+        formGroup.get('password')?.hasError('required')
+      "
+    >
+      Password is required
+    </span>
+    <span
+      class="message-error"
+      *ngIf="
+        formGroup.get('password')?.touched &&
+        formGroup.get('password')?.hasError('pattern')
+      "
+    >
+      Password doesnt't meet the pattern
+    </span>
+
+    <div class="form__element">
+      <button type="button" class="element__button" (click)="login()">
+        <!-- [disabled]="formGroup.invalid" -->
+        Login
+      </button>
+    </div>
+  </form>
+</div>
