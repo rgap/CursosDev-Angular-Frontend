@@ -23,8 +23,8 @@
               "projects/app-cdev/src/assets"
             ],
             "styles": [
-              "projects/app-cdev/src/styles.css",
-              "projects/app-cdev/src/app.css"
+              "projects/app-cdev/src/app.css",
+              "projects/app-cdev/src/styles.css"
             ],
             "scripts": []
           },
